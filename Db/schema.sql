@@ -23,3 +23,9 @@ CREATE TABLE role (
     salary DECIMAL NOT NULL,
     deparment_id INT
 );
+
+INSERT INTO employee (first_name, last_name, role_id, manager_id)
+    values('Mark', 'Smith', 7, 1),
+          ('Ariel', 'Jones', 7, 2),
+         ('Samir', 'Jackson', 8, 2),
+            ('Ty', 'Law', 9, 1);

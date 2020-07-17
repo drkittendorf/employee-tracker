@@ -4,6 +4,8 @@
   "description": "Homework 12 - relational database to track employee information",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
+    
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,8 +19,12 @@
     "url": "https://github.com/drkittendorf/12-employee-tracker/issues"
   },
   "homepage": "https://github.com/drkittendorf/12-employee-tracker#readme",
+  "devDependenceies": {
+  "dev": "nodemon index.js"
+  },
   "dependencies": {
     "console": "^0.7.2",
+    "console.table": "^0.10.0",
     "inquirer": "^7.3.2",
     "mysql": "^2.18.1",
     "table": "^5.4.6"
