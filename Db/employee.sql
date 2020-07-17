@@ -28,3 +28,18 @@
 --   * **last_name** - VARCHAR(30) to hold employee last name
 --   * **role_id** - INT to hold reference to role employee has
 --   * **manager_id** - INT to hold reference to another employee that manager of the current employee. This field may be null if the employee has no manager
+
+
+-- // 1 deptView()
+-- // 2 roleView()
+-- // 3 empView()
+-- // 4 managerEmpView()
+-- // 5 totalBudget()
+-- // 6 addDept()
+-- // 7 addRole()
+-- // 8 addEmp()
+-- // 9 updateEmpRole()
+-- // 10 updateEmpManager()
+-- // 11 deleteDept()
+-- // 12 deleteRole()
+-- // 13 deleteEmp()

@@ -1,30 +1,29 @@
 const mysql = require("mysql");
 const inquirer = require("inquirer");
-const cTable = require('console.table');
+require('console.table');
+const db = require('./Db/sqlfunctions.js');
 
-// create the connection information for the sql database
-const connection = mysql.createConnection({
-    host: "localhost",
+// console.log(db);
 
-    // Your port; if not 3306
-    port: 3306,
 
-    // Your username
-    user: "root",
 
-    // Your password
-    password: "Kittend07!",
-    database: "employeeDB"
-});
+async function empView() {
+    const employee = await db.empView()
+    console.table(employee)
+    
+};
 
-function viewDepartment() {
-    connection.query(
-		connection.query("SELECT * FROM department;", function (err, res, field) {
-            if (err) throw err;
-            console.table(res);
-        })
-    )};
+async function roleView() {
+    const role = await db.roleView()
+    console.table(role)
 
+};
+
+async function deptView() {
+    const dept = await db.deptView()
+    console.table(dept)
+    
+};
 
 // initial prompt
 function start() {
@@ -43,6 +42,7 @@ function start() {
             "Add a role",
             "Add an employee",
             "Update an employee role",
+            "Update an employee manager",            
             "Remove a department",
             "Remove an employee", 
             "Exit"
@@ -57,22 +57,19 @@ function start() {
                 case "View all roles": roleView();break;
                 case "View all employees": empView();break;
                 case "View Employees by Manager": managerEmpView();break;
-                case "View Total Budget by Department": totalBudget();break;// * View the total utilized budget of a department -- ie the combined salaries of all employees in that department
+                case "View Total Budget by Department": totalBudget();break;
                 case "Add a department": addDept();break;
                 case "Add a role": addRole();break;
                 case "Add an employee": addEmp();break;
                 case "Update an employee role": updateEmpRole();break;
+                case "Update an employee manager": updateEmpManager();break;
                 case "Remove a department": deleteDept();break;
-                case "Remove a role": deleteDept();break;
-                case "Remove an employee": deleteDept();break;
-                case "Exit": start() ;break;
+                case "Remove a role": deleteRole();break;
+                case "Remove an employee": deleteEmp();break;
+                case "Exit": connection.end();break;
                 default: break;
             }
-            // Update employee managers
-            // * View employees by manager
-            // * Delete departments, roles, and employees
-            
-          
+
         });
 };
 
