@@ -17,6 +17,14 @@ const connection = mysql.createConnection({
     database: "employeeDB"
 });
 
+function viewDepartment() {
+    connection.query(
+		connection.query("SELECT * FROM department;", function (err, res, field) {
+            if (err) throw err;
+            console.table(res);
+        })
+    )};
+
 // 2nd tier prompt (c)
 async function updateWhat (views) {
     inquirer
@@ -31,12 +39,12 @@ async function updateWhat (views) {
             let key = answer.updatePrompt;
 
             switch (key) {
-                case "Departments": return console.log(`departments`);
+                case "Departments": viewDepartment(); break;
                 case "Roles": return console.log(`roles`);
-                case "Employees": return console.log(`employees`);
-                default: return connection.end();;
+                case "Employees": return console.log(`employees`); //SELECT * from employees where name = {}, 
+                default: return connection.end();;//UPDATE D/R/E SET answer  = {}
             }
-        });
+        }); // EDIT OR DELETE
 };
 // 2nd tier prompt (b)
 async function viewWhat (views) {
@@ -52,7 +60,7 @@ async function viewWhat (views) {
             let key = answer.viewPrompt;
 
             switch (key) {
-                case "Departments": return console.log(`departments`);
+                case "Departments": viewDepartment(); break;
                 case "Roles": return console.log(`roles`);
                 case "Employees": return console.log(`employees`);
                 default: return connection.end();;
