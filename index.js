@@ -4,25 +4,38 @@ require('console.table');
 const db = require('./Db/sqlfunctions.js');
 
 // console.log(db);
+async function managerEmpView() {
+   inquirer
+         .prompt({
+             name: "managerPrompt",
+             type: "input",
+             message: "Enter the manager_id"
+         })
+         .then (function (answer) {
+            const employees = db.managerEmpView(answer)
+            console.table(employees)
+        })
+         .then (function (emp) {
+             const employees = emp
+             console.log(emp)
+             console.log(employees)
 
-
+         });
+};
 
 async function empView() {
     const employee = await db.empView()
-    console.table(employee)
-    
+    console.table(employee) 
 };
 
 async function roleView() {
     const role = await db.roleView()
     console.table(role)
-
 };
 
 async function deptView() {
     const dept = await db.deptView()
-    console.table(dept)
-    
+    console.table(dept)  
 };
 
 // initial prompt

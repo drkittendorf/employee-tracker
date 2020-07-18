@@ -15,12 +15,21 @@ class Database {
      return connection.query("SELECT * FROM department")  
     };
 
-    managerEmpView(){
+    managerEmpView(answer) {
+        // console.log(answer);
+     connection.query
+     ("SELECT first_name, last_name FROM employee WHERE ? ;",
+     {manager_id:answer.managerPrompt},(err,res)=>{ 
+        if(err) throw err;
+        console.log(res);
+        connection.end()
+        return (res);
 
+     })
     };
     
-    totalBudget(){
-
+    totalBudget() {
+     return connection.query("SELECT salary FROM role")
     };
     
     addDept() {
