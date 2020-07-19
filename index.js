@@ -8,8 +8,6 @@ const connection = require ('./Db/connection.js')
 
 
    
-   
-   
 
    function updateEmpRole() {
 
@@ -33,7 +31,7 @@ const connection = require ('./Db/connection.js')
 
     function addEmp(){
     inquirer
-    .prompt(
+    .prompt([
      {
         name: "addEmpPrompt",
         type: "input",
@@ -48,10 +46,11 @@ const connection = require ('./Db/connection.js')
         name: "addEmpRole",
         type: "input",
         message: "What is the employee's role?",
-    })
+    }])
     .then (function (answer) {
         console.log(answer) 
-        connection.query("INSERT INTO employee set ?;",{first_name:answer.addEmpPrompt, last_name:answer.addEmpLast, role_id:answer.addEmpRole},
+        connection.query("INSERT INTO employee set ?;",
+        {first_name:answer.addEmpPrompt, last_name:answer.addEmpLast, role_id:answer.addEmpRole},
         (err,)=>{ if(err) throw err;
           console.log("You added an Employee");
           start()
@@ -60,24 +59,24 @@ const connection = require ('./Db/connection.js')
 }
 function addRole() {
     inquirer
-    .prompt({
-            name: "newRoleTitle",
-            type: "input",
-            message: "What role would you like to add?"
-        },
-        {
-            name: "newRoleSalary",
-            type: "input",
-            message: "What salary will this role have?",
-        },
-        {
-            name: "newRoleDept",
-            type: "input",
-            message: "What department will this new role be in?",
-        })
-    .then (function (answer) {
-        console.log(answer)
-        connection.query("INSERT INTO role set ?;",{title:answer.addRoleTitle, salary:answer.newRoleSalary, department_id:answer.newRoleDept},
+        .prompt([{
+        name: "newRoleTitle",
+        type: "input",
+        message: "What role would you like to add?",
+    },
+    {
+        name: "newRoleSalary",
+        type: "input",
+        message: "What salary will this role have?",
+    },
+    {
+        name: "newRoleDept",
+        type: "input",
+        message: "What department will this new role be in?",
+    }])
+    .then (function (answers) {
+        console.log(answers)
+        connection.query("INSERT INTO role set ?;",{title:answers.newRoleTitle, salary:answers.newRoleSalary, department_id:answers.newRoleDept},
         (err,)=>{ if(err) throw err;
           console.log("You added a role");
           start()
