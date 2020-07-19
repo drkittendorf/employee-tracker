@@ -2,26 +2,123 @@ const mysql = require("mysql");
 const inquirer = require("inquirer");
 require('console.table');
 const db = require('./Db/sqlfunctions.js');
+const connection = require ('./Db/connection.js')
 
 // console.log(db);
-async function managerEmpView() {
-   inquirer
-         .prompt({
-             name: "managerPrompt",
-             type: "input",
-             message: "Enter the manager_id"
-         })
-         .then (function (answer) {
-            const employees = db.managerEmpView(answer)
-            console.table(employees)
-        })
-         .then (function (emp) {
-             const employees = emp
-             console.log(emp)
-             console.log(employees)
 
-         });
-};
+
+   
+   
+   
+
+   function updateEmpRole() {
+
+   };
+   
+   function updateEmpManager() {
+
+   };
+   
+   function deleteDept() {
+
+   };
+   
+   function deleteRole() {
+
+   };
+   
+   function deleteEmp() {
+
+   };
+
+    function addEmp(){
+    inquirer
+    .prompt(
+     {
+        name: "addEmpPrompt",
+        type: "input",
+        message: "What is the employee's first name?"
+    },
+    {
+        name: "addEmpLast",
+        type: "input",
+        message: "What is the employee's last name?"
+    },
+    {
+        name: "addEmpRole",
+        type: "input",
+        message: "What is the employee's role?",
+    })
+    .then (function (answer) {
+        console.log(answer) 
+        connection.query("INSERT INTO employee set ?;",{first_name:answer.addEmpPrompt, last_name:answer.addEmpLast, role_id:answer.addEmpRole},
+        (err,)=>{ if(err) throw err;
+          console.log("You added an Employee");
+          start()
+        });
+   });
+}
+function addRole() {
+    inquirer
+    .prompt({
+            name: "newRoleTitle",
+            type: "input",
+            message: "What role would you like to add?"
+        },
+        {
+            name: "newRoleSalary",
+            type: "input",
+            message: "What salary will this role have?",
+        },
+        {
+            name: "newRoleDept",
+            type: "input",
+            message: "What department will this new role be in?",
+        })
+    .then (function (answer) {
+        console.log(answer)
+        connection.query("INSERT INTO role set ?;",{title:answer.addRoleTitle, salary:answer.newRoleSalary, department_id:answer.newRoleDept},
+        (err,)=>{ if(err) throw err;
+          console.log("You added a role");
+          start()
+        });
+     });
+    };
+    
+function addDept() {
+    inquirer
+    .prompt({
+        name: "addDeptPrompt",
+        type: "input",
+        message: "What is the name of the Department you would like to add?"
+    })
+    .then (function (answer) {
+      console.log(answer) 
+      connection.query("INSERT INTO department (name) VALUES (?);",[answer.addDeptPrompt],
+      (err,)=>{ if(err) throw err;
+        console.log("You added a department");
+        start()
+      });
+    })
+    };
+
+function managerEmpView() {
+    inquirer
+          .prompt({
+              name: "managerPrompt",
+              type: "input",
+              message: "Enter the manager_id"
+          })
+          .then (function (answer) {
+             const employees = (answer)
+             connection.query
+          ("SELECT first_name, last_name FROM employee WHERE ? ;",
+          {manager_id:answer.managerPrompt},(err,res)=>{ 
+            if(err) throw err;
+            console.table(res);
+            connection.end()   
+          })
+        })};
 
 async function empView() {
     const employee = await db.empView()
@@ -37,7 +134,6 @@ async function deptView() {
     const dept = await db.deptView()
     console.table(dept)  
 };
-
 // initial prompt
 function start() {
     inquirer
