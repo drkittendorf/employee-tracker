@@ -10,9 +10,22 @@ const connection = require('./Db/connection.js')
    };
 
    function deleteRole() {
-
+    inquirer
+    .prompt([
+     {  name: "delRolePrompt",
+        type: "input",
+        message: "Which Role would you like to remove from the database?Enter an id"
+    }])
+   .then (function (answer) {
+    console.log(answer) 
+    connection.query("DELETE from role WHERE ?;",[{role_id:answer.delRolePrompt}],
+    (err,)=>{ if(err) throw err;
+      console.log("You deleted a Role");
+      start()    
+    });
+});
    };
-   //NOT YET WORKING
+
    function deleteEmp() {
     inquirer
     .prompt([
@@ -184,6 +197,7 @@ function start() {
                 "Update an Employee role",
                 "Update an Employee manager",
                 "Remove a Department",
+                "Remove a Role",
                 "Remove an Employee",
                 "Exit"
             ]
