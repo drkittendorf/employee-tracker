@@ -16,16 +16,15 @@ const connection = require('./Db/connection.js')
    function deleteEmp() {
     inquirer
     .prompt([
-     {  name: "addEmpPrompt",
+     {  name: "delEmpPrompt",
         type: "input",
-        message: "Which employee would you like to remove from the database?"
+        message: "Which employee would you like to remove from the database?Enter an id"
     }])
    .then (function (answer) {
     console.log(answer) 
-    connection.query("DELETE from employee set WHERE ?;",
-    {first_name:answer.addEmpPrompt, last_name:answer.addEmpLast, role_id:answer.addEmpRole},
+    connection.query("DELETE from employee WHERE ?;",[{id:answer.delEmpPrompt}],
     (err,)=>{ if(err) throw err;
-      console.log("You added an Employee");
+      console.log("You deleted an Employee");
       start()    
     });
 });
