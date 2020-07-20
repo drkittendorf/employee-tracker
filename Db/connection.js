@@ -10,8 +10,8 @@ const connection = mysql.createConnection({
     // Your username
     user: "root",
     // Your password
-    password: "DB_PASS",
-    database: "DB_NAME"
+    password: process.env.DB_PASS,
+    database: process.env.DB_NAME
 });
 
 connection.connect(function(err) {
