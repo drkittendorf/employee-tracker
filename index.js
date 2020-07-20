@@ -4,100 +4,100 @@ require('console.table');
 const db = require('./Db/sqlfunctions.js');
 const connection = require('./Db/connection.js')
 
-   function deleteDept() {
-    inquirer
-    .prompt([
-     {  name: "delDeptPrompt",
-        type: "input",
-        message: "Which Department would you like to remove from the database?Enter an id"
-    }])
-   .then (function (answer) {
-    console.log(answer) 
-    connection.query("DELETE from department WHERE ?;",[{department_id:answer.delDeptPrompt}],
-    (err,)=>{ if(err) throw err;
-      console.log("You deleted a Department");
-      start()    
-    });
+function deleteDept() {
+inquirer
+.prompt([
+    {  name: "delDeptPrompt",
+    type: "input",
+    message: "Which Department would you like to remove from the database?Enter an id"
+}])
+.then (function (answer) {
+console.log(answer) 
+connection.query("DELETE from department WHERE ?;",[{department_id:answer.delDeptPrompt}],
+(err,)=>{ if(err) throw err;
+    console.log("You deleted a Department");
+    start()    
 });
-   };
-
-   function deleteRole() {
-    inquirer
-    .prompt([
-     {  name: "delRolePrompt",
-        type: "input",
-        message: "Which Role would you like to remove from the database?Enter an id"
-    }])
-   .then (function (answer) {
-    console.log(answer) 
-    connection.query("DELETE from role WHERE ?;",[{role_id:answer.delRolePrompt}],
-    (err,)=>{ if(err) throw err;
-      console.log("You deleted a Role");
-      start()    
-    });
 });
-   };
+};
 
-   function deleteEmp() {
-    inquirer
-    .prompt([
-     {  name: "delEmpPrompt",
-        type: "input",
-        message: "Which employee would you like to remove from the database?Enter an id"
-    }])
-   .then (function (answer) {
-    console.log(answer) 
-    connection.query("DELETE from employee WHERE ?;",[{id:answer.delEmpPrompt}],
-    (err,)=>{ if(err) throw err;
-      console.log("You deleted an Employee");
-      start()    
-    });
+function deleteRole() {
+inquirer
+.prompt([
+    {  name: "delRolePrompt",
+    type: "input",
+    message: "Which Role would you like to remove from the database?Enter an id"
+}])
+.then (function (answer) {
+console.log(answer) 
+connection.query("DELETE from role WHERE ?;",[{role_id:answer.delRolePrompt}],
+(err,)=>{ if(err) throw err;
+    console.log("You deleted a Role");
+    start()    
 });
-   };
-   function updateEmpManager() {
-    inquirer
-    .prompt([
-     {  name: "updateEmpPrompt",
-        type: "input",
-        message: "What employee would you like to assign to a new manager? Enter an id"
-    },
-    {  name: "updateManPrompt",
-        type: "input",
-        message: "What manager would you like to add to the selected employee? Enter manager id."
-    },
-    ])
-   .then (function (answer) {
-    console.log(answer) 
-    connection.query("UPDATE employee SET ? WHERE ?;",[{manager_id:answer.updateManPrompt},{id:answer.updateEmpPrompt}],
-    (err,)=>{ if(err) throw err;
-      console.log("You updated the manager of an employee");
-      start()    
-    });
-    });
-   };
+});
+};
 
-   function updateEmpRole() {
-    inquirer
-    .prompt([
-     {  name: "updateRolePrompt",
-        type: "input",
-        message: "What role_id would you like to assign in the database? Enter role id"
-    },
+function deleteEmp() {
+inquirer
+.prompt([
+    {  name: "delEmpPrompt",
+    type: "input",
+    message: "Which employee would you like to remove from the database?Enter an id"
+}])
+.then (function (answer) {
+console.log(answer) 
+connection.query("DELETE from employee WHERE ?;",[{id:answer.delEmpPrompt}],
+(err,)=>{ if(err) throw err;
+    console.log("You deleted an Employee");
+    start()    
+});
+});
+};
+
+function updateEmpManager() {
+inquirer
+.prompt([
     {  name: "updateEmpPrompt",
-        type: "input",
-        message: "What employee would you like to update in the database?Enter employee id."
-    },
-    ])
-   .then (function (answer) {
-    console.log(answer) 
-    connection.query("UPDATE employee SET ? WHERE ?;",[{role_id:answer.updateRolePrompt},{ id:answer.updateEmpPrompt}],
-    (err,)=>{ if(err) throw err;
-      console.log("You added an Employee");
-      start()    
-    });
-    });
-   };
+    type: "input",
+    message: "What employee would you like to assign to a new manager? Enter an id"
+},
+{  name: "updateManPrompt",
+    type: "input",
+    message: "What manager would you like to add to the selected employee? Enter manager id."
+},
+])
+.then (function (answer) {
+console.log(answer) 
+connection.query("UPDATE employee SET ? WHERE ?;",[{manager_id:answer.updateManPrompt},{id:answer.updateEmpPrompt}],
+(err,)=>{ if(err) throw err;
+    console.log("You updated the manager of an employee");
+    start()    
+});
+});
+};
 
+function updateEmpRole() {
+inquirer
+.prompt([
+    {  name: "updateRolePrompt",
+    type: "input",
+    message: "What role_id would you like to assign in the database? Enter role id"
+},
+{  name: "updateEmpPrompt",
+    type: "input",
+    message: "What employee would you like to update in the database?Enter employee id."
+},
+])
+.then (function (answer) {
+console.log(answer) 
+connection.query("UPDATE employee SET ? WHERE ?;",[{role_id:answer.updateRolePrompt},{ id:answer.updateEmpPrompt}],
+(err,)=>{ if(err) throw err;
+    console.log("You added an Employee");
+    start()    
+});
+});
+};
 
 function addEmp() {
     inquirer
@@ -115,7 +115,7 @@ function addEmp() {
             {
                 name: "addEmpRole",
                 type: "input",
-                message: "What is the employee's role?",
+                message: "What is the employee's role? Enter a role id",
             }])
         .then(function (answer) {
             console.log(answer)
@@ -144,7 +144,7 @@ function addRole() {
         {
             name: "newRoleDept",
             type: "input",
-            message: "What department will this new role be in?",
+            message: "What department will this new role be in?Enter an id",
         }])
         .then(function (answers) {
             console.log(answers)
@@ -220,7 +220,6 @@ function start() {
                 "View all Roles",
                 "View all Employees",
                 "View Employees by Manager",
-                "View Total Budget by Department",
                 "Add a Department",
                 "Add a Role",
                 "Add an Employee",
@@ -241,7 +240,6 @@ function start() {
                 case "View all Roles": roleView(); break;
                 case "View all Employees": empView(); break;
                 case "View Employees by Manager": managerEmpView(); break;
-                case "View Total Budget by Department": totalBudget(); break;
                 case "Add a Department": addDept(); break;
                 case "Add a Role": addRole(); break;
                 case "Add an Employee": addEmp(); break;
