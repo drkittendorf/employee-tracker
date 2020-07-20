@@ -30,25 +30,25 @@ const connection = require('./Db/connection.js')
     });
 });
    };
-   function updateEmpManager() {
+//    function updateEmpManager() {
 
-   }; 
+//    }; 
 
    function updateEmpRole() {
     inquirer
     .prompt([
      {  name: "updateRolePrompt",
         type: "input",
-        message: "What role_id would you like to assign in the database?"
+        message: "What role_id would you like to assign in the database? Enter role id"
     },
     {  name: "updateEmpPrompt",
         type: "input",
-        message: "What employee would you like to update in the database?"
+        message: "What employee would you like to update in the database?Enter employee id."
     },
     ])
    .then (function (answer) {
     console.log(answer) 
-    connection.query("UPDATE employee SET ? , WHERE ?;",[{role_id:answer.updateRolePrompt, role_id:answer.updateEmpPrompt}],
+    connection.query("UPDATE employee SET ? WHERE ?;",[{role_id:answer.updateRolePrompt},{ id:answer.updateEmpPrompt}],
     (err,)=>{ if(err) throw err;
       console.log("You added an Employee");
       start()    
