@@ -6,7 +6,20 @@ const connection = require('./Db/connection.js')
 
 
    function deleteDept() {
-
+    inquirer
+    .prompt([
+     {  name: "delDeptPrompt",
+        type: "input",
+        message: "Which Department would you like to remove from the database?Enter an id"
+    }])
+   .then (function (answer) {
+    console.log(answer) 
+    connection.query("DELETE from department WHERE ?;",[{department_id:answer.delDeptPrompt}],
+    (err,)=>{ if(err) throw err;
+      console.log("You deleted a Department");
+      start()    
+    });
+});
    };
 
    function deleteRole() {
@@ -43,6 +56,7 @@ const connection = require('./Db/connection.js')
 });
    };
 //    function updateEmpManager() {
+        
 
 //    }; 
 
