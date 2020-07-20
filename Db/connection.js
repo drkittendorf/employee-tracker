@@ -1,5 +1,6 @@
 const mysql = require("mysql");
 const util = require("util");
+require('dotenv').config();
 
 // create the connection information for the sql database
 const connection = mysql.createConnection({
@@ -9,8 +10,8 @@ const connection = mysql.createConnection({
     // Your username
     user: "root",
     // Your password
-    password: "Kittend07!",
-    database: "employeeDB"
+    password: "DB_PASS",
+    database: "DB_NAME"
 });
 
 connection.connect(function(err) {

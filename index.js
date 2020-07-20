@@ -4,19 +4,7 @@ require('console.table');
 const db = require('./Db/sqlfunctions.js');
 const connection = require ('./Db/connection.js')
 
-// console.log(db);
 
-
-   
-
-   function updateEmpRole() {
-
-   };
-   
-   function updateEmpManager() {
-
-   };
-   
    function deleteDept() {
 
    };
@@ -24,10 +12,50 @@ const connection = require ('./Db/connection.js')
    function deleteRole() {
 
    };
-   
+   //NOT YET WORKING
    function deleteEmp() {
-
+    inquirer
+    .prompt([
+     {  name: "addEmpPrompt",
+        type: "input",
+        message: "Which employee would you like to remove from the database?"
+    }])
+   .then (function (answer) {
+    console.log(answer) 
+    connection.query("DELETE from employee set WHERE ?;",
+    {first_name:answer.addEmpPrompt, last_name:answer.addEmpLast, role_id:answer.addEmpRole},
+    (err,)=>{ if(err) throw err;
+      console.log("You added an Employee");
+      start()    
+    });
+});
    };
+   function updateEmpManager() {
+
+   }; 
+
+   function updateEmpRole() {
+    inquirer
+    .prompt([
+     {  name: "updateRolePrompt",
+        type: "input",
+        message: "What role_id would you like to assign in the database?"
+    },
+    {  name: "updateEmpPrompt",
+        type: "input",
+        message: "What employee would you like to update in the database?"
+    },
+    ])
+   .then (function (answer) {
+    console.log(answer) 
+    connection.query("UPDATE employee SET ? , WHERE ?;",[{role_id:answer.updateRolePrompt, role_id:answer.updateEmpPrompt}]
+    (err,)=>{ if(err) throw err;
+      console.log("You added an Employee");
+      start()    
+    });
+    });
+   };
+  
 
     function addEmp(){
     inquirer
@@ -52,7 +80,7 @@ const connection = require ('./Db/connection.js')
         connection.query("INSERT INTO employee set ?;",
         {first_name:answer.addEmpPrompt, last_name:answer.addEmpLast, role_id:answer.addEmpRole},
         (err,)=>{ if(err) throw err;
-          console.log("You added an Employee");
+          console.log("You updated an Employee");
           start()
         });
    });
@@ -141,39 +169,39 @@ function start() {
             type: "list",
             message: "Welcome to the Employees Management System! What task would you like to perform?",
             choices: [
-            "View all departments",
-            "View all roles",
-            "View all employees",
+            "View all Departments",
+            "View all Roles",
+            "View all Employees",
             "View Employees by Manager",
             "View Total Budget by Department",
-            "Add a department",
-            "Add a role",
-            "Add an employee",
-            "Update an employee role",
-            "Update an employee manager",            
-            "Remove a department",
-            "Remove an employee", 
+            "Add a Department",
+            "Add a Role",
+            "Add an Employee",
+            "Update an Employee role",
+            "Update an Employee manager",            
+            "Remove a Department",
+            "Remove an Employee", 
             "Exit"
-        ]
+             ]
         })
         .then(function (answer) {
            
             let key = answer.firstPrompt;
 
             switch (key) {
-                case "View all departments": deptView();break;
-                case "View all roles": roleView();break;
-                case "View all employees": empView();break;
+                case "View all Departments": deptView();break;
+                case "View all Roles": roleView();break;
+                case "View all Employees": empView();break;
                 case "View Employees by Manager": managerEmpView();break;
                 case "View Total Budget by Department": totalBudget();break;
-                case "Add a department": addDept();break;
-                case "Add a role": addRole();break;
-                case "Add an employee": addEmp();break;
-                case "Update an employee role": updateEmpRole();break;
-                case "Update an employee manager": updateEmpManager();break;
-                case "Remove a department": deleteDept();break;
-                case "Remove a role": deleteRole();break;
-                case "Remove an employee": deleteEmp();break;
+                case "Add a Department": addDept();break;
+                case "Add a Role": addRole();break;
+                case "Add an Employee": addEmp();break;
+                case "Update an Employee role": updateEmpRole();break;
+                case "Update an Employee manager": updateEmpManager();break;
+                case "Remove a Department": deleteDept();break;
+                case "Remove a Role": deleteRole();break;
+                case "Remove an Employee": deleteEmp();break;
                 case "Exit": connection.end();break;
                 default: break;
             }
@@ -182,3 +210,5 @@ function start() {
 };
 
 start();
+
+// module.exports =  {Start}

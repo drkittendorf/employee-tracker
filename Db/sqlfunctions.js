@@ -1,4 +1,5 @@
 const connection = require ('./connection.js')
+// const {Start} = require('../index.js');
 
 class Database {
 
@@ -10,7 +11,7 @@ class Database {
  
     roleView() {
      return connection.query("SELECT * FROM role")
-     connection.end() 
+      connection.end() 
     };
 
     empView() {
