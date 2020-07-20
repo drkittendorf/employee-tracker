@@ -4,7 +4,6 @@ require('console.table');
 const db = require('./Db/sqlfunctions.js');
 const connection = require('./Db/connection.js')
 
-
    function deleteDept() {
     inquirer
     .prompt([
@@ -55,10 +54,27 @@ const connection = require('./Db/connection.js')
     });
 });
    };
-//    function updateEmpManager() {
-        
-
-//    }; 
+   function updateEmpManager() {
+    inquirer
+    .prompt([
+     {  name: "updateEmpPrompt",
+        type: "input",
+        message: "What employee would you like to assign to a new manager? Enter an id"
+    },
+    {  name: "updateManPrompt",
+        type: "input",
+        message: "What manager would you like to add to the selected employee? Enter manager id."
+    },
+    ])
+   .then (function (answer) {
+    console.log(answer) 
+    connection.query("UPDATE employee SET ? WHERE ?;",[{manager_id:answer.updateManPrompt},{id:answer.updateEmpPrompt}],
+    (err,)=>{ if(err) throw err;
+      console.log("You updated the manager of an employee");
+      start()    
+    });
+    });
+   };
 
    function updateEmpRole() {
     inquirer
