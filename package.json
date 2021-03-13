@@ -1,5 +1,5 @@
 {
-  "name": "12-employee-tracker",
+  "name": "employee-tracker",
   "version": "1.0.0",
   "description": "Homework 12 - relational database to track employee information",
   "main": "index.js",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/drkittendorf/12-employee-tracker.git"
+    "url": "git+https://github.com/drkittendorf/employee-tracker.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/drkittendorf/12-employee-tracker/issues"
+    "url": "https://github.com/drkittendorf/employee-tracker/issues"
   },
-  "homepage": "https://github.com/drkittendorf/12-employee-tracker#readme",
+  "homepage": "https://github.com/drkittendorf/employee-tracker#readme",
   "devDependenceies": {
     "dev": "nodemon index.js"
   },
