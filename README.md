@@ -1,7 +1,7 @@
-## 12 Employee Tracker
+## Employee Tracker
 
 ## App URL
-https://drkittendorf.github.io/11-note-taker/ <br>
+<br>
 
 # USER STORY
 As a business owner<br>
