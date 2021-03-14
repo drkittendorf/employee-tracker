@@ -1,7 +1,7 @@
 {
   "name": "employee-tracker",
   "version": "1.0.0",
-  "description": "Homework 12 - relational database to track employee information",
+  "description": "Relational database to track employee information",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",

@@ -1,11 +1,12 @@
-# EMPLOYEE TRACKER
+# EMPLOYEE TRACKER CLI (Command Line Interface)
 
 ### TABLE OF CONTENTS
 
-- [CONTRIBUTORS](#CONTRIBUTORS
+- [CONTRIBUTORS](#CONTRIBUTORS)
 - [DESCRIPTION](#DESCRIPTION)
 - [REFERENCE LINKS](#REFERENCE-LINKS)
     - [Dale's EMPLOYEE TRACKER Application :: GitHub Repo](https://github.com/drkittendorf/employee-tracker)
+- [INSTALLING](#INSTALLING)
 - [LANGUAGES AND TOOLS](#LANGUAGES-AND-TOOLS)
 - [CORE PROJECT TECHNOLOGIES](#CORE-PROJECT-TECHNOLOGIES)
 - [CORE NODE DEPENDENCIES](#CORE-NODE-DEPENDENCIES)
@@ -24,9 +25,10 @@ Dale Kittendorf
 
 
 # USER STORY
-As a business owner<br>
-I want to be able to view and manage the departments, roles, and employees in my company<br>
-SO THAT I can organize my thoughts and keep track of tasks I So that I can organize and plan my business<br>
+- As a business owner
+- I want to be able to view and manage the departments, roles, and employees in my company
+- So that I can organize my thoughts and keep track of tasks
+ - So that I can organize and plan my business
 
 # DESCRIPTION
 
@@ -57,12 +59,20 @@ This react website **showcases** a responsive portfolio, with information **abou
 
 ## REFERENCE LINKS
 
-Link to **Dale's Portfolio** deployed on GitHub Pages - [Application Live Link](https://drkittendorf.github.io/portfolio/)
+Link to **Employee Tracker** deployed on GitHub Pages - [Application Live Link](https://github.com/drkittendorf/employee-tracker)
 
-Link to **GitHub Repo** used for application development - [Application GitHub Repo](https://github.com/drkittendorf/portfolio)
+## INSTALLING
 
-<br>
-
+To run this application, follow these steps:
+It is a command line application, so will be run in your preferred command line interface:
+```
+step 1: clone https://github.com/drkittendorf/employee-tracker.git
+step 2: install node https://nodejs.org/en/download/
+step 3: npm install
+step 4: node app.js
+step 5: npm start
+Follow prompts in command line.
+```
 ---
 
 ## LANGUAGES AND TOOLS:
@@ -81,13 +91,19 @@ Link to **GitHub Repo** used for application development - [Application GitHub R
 Here is a list of all the core technologies used to develop this application.
 
 - `Node.js - An asynchronous event-driven JavaScript runtime`
+- `MySQL`
 
 ### CORE NODE DEPENDENCIES
 
 The dependencies listed below are all the core NPM packages used throughout the project.
 
-- `mysql`
--
+
+- `inquirer`
+- `table`
+- `util`
+- `table`
+- `nodemon`
+
 
 <br>
 
@@ -95,19 +111,12 @@ The dependencies listed below are all the core NPM packages used throughout the 
 
 ## FUTURE DEVELOPMENT
 
-For `future` development, I would like to incorporate the following `enhancements` into my portfolio:
+For `future` development, I would like to incorporate the following `enhancements`:
 
-- Add software Icons
-- Add github and project links to all projects
-- Update Fonts
-- Enhance the portfolio platform by adding more content and continuing to revise projects
-- Develop better responsiveness for various screen sizes
-- Tighten up sizes and review fonts
-- Adjust Footer spacing
-- Cleaner styling
-- Cleanup CSS
-- Add Screenshots and videos to ReadMe
-- Add Modal for resume display prior to opening in new window
+- Add video to readme
+- Add screenshot to readme
+- Make application run continuously through a loop
+- Add a HTML page interface
 
 ---
 
