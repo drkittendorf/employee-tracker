@@ -1,17 +1,17 @@
-# EMPLOYEE TRACKER CLI (Command Line Interface)
-
+# EMPLOYEE TRACKER CLI 
+(Command Line Interface)
 ### TABLE OF CONTENTS
 
 - [CONTRIBUTORS](#CONTRIBUTORS)
 - [DESCRIPTION](#DESCRIPTION)
 - [REFERENCE LINKS](#REFERENCE-LINKS)
     - [Dale's EMPLOYEE TRACKER Application :: GitHub Repo](https://github.com/drkittendorf/employee-tracker)
-- [INSTALLING](#INSTALLING)
 - [LANGUAGES AND TOOLS](#LANGUAGES-AND-TOOLS)
 - [CORE PROJECT TECHNOLOGIES](#CORE-PROJECT-TECHNOLOGIES)
 - [CORE NODE DEPENDENCIES](#CORE-NODE-DEPENDENCIES)
 - [FUTURE DEVELOPMENT](#FUTURE-DEVELOPMENT)
 - [LICENSING](#LICENSING)
+- [INSTALLING](#INSTALLING)
 - [SCREENSHOTS](#SCREENSHOTS-AND-VIDEO)
 
 ---
@@ -36,41 +36,32 @@ Dale Kittendorf
 
 # DESCRIPTION
 
- A command-line application that at a minimum allows the user to:
-  * Add departments, roles, employees
-  * View departments, roles, employees
-  * Update employee roles
-  * Update employee managers
-  * View employees by manager
-  * Delete departments, roles, and employees
-  * View the total utilized budget of a department - the     combined salaries of all employees in that department
+ A command-line application that allows the user to:
+- Add departments, roles, employees
+- View departments, roles, employees
+- Update employee roles
+- Update employee managers
+- View employees by manager
+- Delete departments, roles, and employees
+- View the total utilized budget of a department including the combined salaries of all employees in that department
 
   <br>
 
 ---
-## REFERENCE LINKS
----
-Link to **Employee Tracker** deployed on GitHub Pages - [Application Live Link](https://github.com/drkittendorf/employee-tracker)
+
+# REFERENCE LINKS
+
+Link to **Dale's Employee Tracker** deployed on GitHub Pages - [Application Live Link](https://github.com/drkittendorf/employee-tracker)
+
 
 <br>
 
 ---
 
-## INSTALLING
----
-To run this application, follow these steps:
-It is a command line application, so will be run in your preferred command line interface:
-```
-step 1: clone https://github.com/drkittendorf/employee-tracker.git
-step 2: install node https://nodejs.org/en/download/
-step 3: npm install
-step 4: node app.js
-step 5: npm start
-Follow prompts in command line.
-```
+## LANGUAGES AND TOOLS:
+
 ---
 
-## LANGUAGES AND TOOLS:
 <img align="left" alt="Visual Studio Code" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/visual-studio-code/visual-studio-code.png" />
 <img align="left" alt="JavaScript" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png" />
 <img align="left" alt="Node.js" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/nodejs/nodejs.png" />
@@ -119,6 +110,20 @@ For `future` development, I would like to incorporate the following `enhancement
 
 The code in this project is licensed under MIT license.
 
+---
+
+## INSTALLING
+---
+To run this application, follow these steps:
+It is a command line application, so will be run in your preferred command line interface:
+```
+step 1: clone https://github.com/drkittendorf/employee-tracker.git
+step 2: install node https://nodejs.org/en/download/
+step 3: npm install
+step 4: node app.js
+step 5: npm start
+Follow prompts in command line.
+```
 ---
 
 ## SCREENSHOTS AND VIDEO
