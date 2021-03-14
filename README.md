@@ -15,6 +15,7 @@
 - [SCREENSHOTS](#SCREENSHOTS-AND-VIDEO)
 
 ---
+---
 
 ## CONTRIBUTORS
 Dale Kittendorf
@@ -23,12 +24,15 @@ Dale Kittendorf
 
 ---
 
-
 # USER STORY
 - As a business owner
 - I want to be able to view and manage the departments, roles, and employees in my company
 - So that I can organize my thoughts and keep track of tasks
  - So that I can organize and plan my business
+
+<br>
+
+---
 
 # DESCRIPTION
 
@@ -41,28 +45,19 @@ Dale Kittendorf
   * Delete departments, roles, and employees
   * View the total utilized budget of a department - the     combined salaries of all employees in that department
 
+  <br>
 
-## Application Screenshots
-
-
-
-
-
-
-## DESCRIPTION
-
-This react website **showcases** a responsive portfolio, with information **about Dale**, including his **work** and **contact info**.
+---
+## REFERENCE LINKS
+---
+Link to **Employee Tracker** deployed on GitHub Pages - [Application Live Link](https://github.com/drkittendorf/employee-tracker)
 
 <br>
 
 ---
 
-## REFERENCE LINKS
-
-Link to **Employee Tracker** deployed on GitHub Pages - [Application Live Link](https://github.com/drkittendorf/employee-tracker)
-
 ## INSTALLING
-
+---
 To run this application, follow these steps:
 It is a command line application, so will be run in your preferred command line interface:
 ```
@@ -98,11 +93,9 @@ Here is a list of all the core technologies used to develop this application.
 The dependencies listed below are all the core NPM packages used throughout the project.
 
 
-- `inquirer`
-- `table`
-- `util`
-- `table`
-- `nodemon`
+- `inquirer` a collection of common interactive command line user interfaces.
+- `table` produces a string that represents array data in a text table.
+- `nodemon` automatically restarts the node application when file changes in the directory are detected.
 
 
 <br>
